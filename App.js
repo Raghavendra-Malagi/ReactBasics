@@ -41,101 +41,164 @@ const stylecard = {
   backgroundColor: "red",
 };
 const Resturantcards = (props) => {
-  {
-    console.log(props);
-  }
+  const { resData } = props;
   return (
     <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
       <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/v8jgifosg3vdzrgsv1sw"
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          resData.info.cloudinaryImageId
+        }
         alt="res-img"
       />
       <div className="res-data">
-        <h1>{props.resName}</h1>
-        <h4>{props.cuisines}</h4>
-        <h4>4.5 🌟</h4>
-        <h4>38 mins 🚲</h4>
+        <h1>{resData.info.name}</h1>
+        <h4>{resData.info.cuisines.join(",")}</h4>
+        <h4>{resData.info.costForTwo}</h4>
+        <h4>{resData.info.avgRating} ⭐</h4>
+        <h4>{resData.info.locality} 📫</h4>
+        <h4>{resData.info.sla.deliveryTime} mins 🚲</h4>
       </div>
     </div>
   );
 };
 
-const resObj = {
-  info: {
-    id: "405798",
-    name: "Chinese Wok",
-    cloudinaryImageId: "e0839ff574213e6f35b3899ebf1fc597",
-    locality: "Malleshwaram",
-    areaName: "Malleshwaram",
-    costForTwo: "₹250 for two",
-    cuisines: ["Chinese", "Asian", "Tibetan", "Desserts"],
-    avgRating: 4.3,
-    parentId: "61955",
-    avgRatingString: "4.3",
-    totalRatingsString: "500+",
-    sla: {
-      deliveryTime: 55,
-      lastMileTravel: 5,
-      serviceability: "SERVICEABLE",
-      slaString: "55-60 mins",
-      lastMileTravelString: "5.0 km",
-      iconType: "ICON_TYPE_EMPTY",
-    },
-    availability: {
-      nextCloseTime: "2024-07-09 22:00:00",
-      opened: true,
-    },
-    badges: {},
-    isOpen: true,
-    type: "F",
-    badgesV2: {
-      entityBadges: {
-        imageBased: {},
-        textBased: {},
-        textExtendedBadges: {},
+const resObj = [
+  {
+    info: {
+      id: "405798",
+      name: "Chinese Wok",
+      cloudinaryImageId: "e0839ff574213e6f35b3899ebf1fc597",
+      locality: "Malleshwaram",
+      areaName: "Malleshwaram",
+      costForTwo: "₹250 for two",
+      cuisines: ["Chinese", "Asian", "Tibetan", "Desserts"],
+      avgRating: 4.3,
+      parentId: "61955",
+      avgRatingString: "4.3",
+      totalRatingsString: "500+",
+      sla: {
+        deliveryTime: 55,
+        lastMileTravel: 5,
+        serviceability: "SERVICEABLE",
+        slaString: "55-60 mins",
+        lastMileTravelString: "5.0 km",
+        iconType: "ICON_TYPE_EMPTY",
       },
-    },
-    aggregatedDiscountInfoV3: {
-      header: "ITEMS",
-      subHeader: "AT ₹149",
-    },
-    orderabilityCommunication: {
-      title: {},
-      subTitle: {},
-      message: {},
-      customIcon: {},
-    },
-    differentiatedUi: {
-      displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-      differentiatedUiMediaDetails: {
-        mediaType: "ADS_MEDIA_ENUM_IMAGE",
-        lottie: {},
-        video: {},
+      availability: {
+        nextCloseTime: "2024-07-09 22:00:00",
+        opened: true,
       },
-    },
-    reviewsSummary: {},
-    displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-    restaurantOfferPresentationInfo: {},
-    externalRatings: {
-      aggregatedRating: {
-        rating: "4.2",
-        ratingCount: "10+",
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
       },
-      source: "GOOGLE",
-      sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      aggregatedDiscountInfoV3: {
+        header: "ITEMS",
+        subHeader: "AT ₹149",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "4.2",
+          ratingCount: "10+",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
     },
-    ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
   },
-  analytics: {
-    context: "seo-data-d2d9a2a1-9f97-49d3-85b1-aa508d237c60",
+  {
+    info: {
+      id: "10575",
+      name: "Pizza Hut",
+      cloudinaryImageId: "2b4f62d606d1b2bfba9ba9e5386fabb7",
+      locality: "Richmond Town",
+      areaName: "Shanti Nagar",
+      costForTwo: "₹600 for two",
+      cuisines: ["Pizzas"],
+      avgRating: 4.2,
+      parentId: "721",
+      avgRatingString: "4.2",
+      totalRatingsString: "5K+",
+      sla: {
+        deliveryTime: 34,
+        lastMileTravel: 2.7,
+        serviceability: "SERVICEABLE",
+        slaString: "30-35 mins",
+        lastMileTravelString: "2.7 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2024-07-10 01:00:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "50% OFF",
+        subHeader: "UPTO ₹100",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "3.9",
+          ratingCount: "1K+",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
   },
-  cta: {
-    link: "https://www.swiggy.com/restaurants/chinese-wok-malleshwaram-bangalore-405798",
-    text: "RESTAURANT_MENU",
-    type: "WEBLINK",
-  },
-  widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
-};
+];
 const Body = () => {
   return (
     <div className="body">
@@ -145,11 +208,8 @@ const Body = () => {
       </div>
       <div className="res-container">
         {/*Resturantcards*/}
-        <Resturantcards
-          resName="Meghana Foods"
-          cuisines="Biryani, North Indian, Asian"
-        />
-        <Resturantcards resName="KFC" cuisines="Burger, Rolls" />
+        <Resturantcards resData={resObj} />
+        {/* <Resturantcards resName="KFC" cuisines="Burger, Rolls" /> */}
       </div>
     </div>
   );
