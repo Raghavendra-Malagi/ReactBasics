@@ -63,7 +63,7 @@ const Resturantcards = (props) => {
   );
 };
 
-const resObj = [
+const resList = [
   {
     info: {
       id: "405798",
@@ -208,7 +208,8 @@ const Body = () => {
       </div>
       <div className="res-container">
         {/*Resturantcards*/}
-        <Resturantcards resData={resObj} />
+        <Resturantcards resData={resList[0]} />
+        <Resturantcards resData={resList[1]} />
         {/* <Resturantcards resName="KFC" cuisines="Burger, Rolls" /> */}
       </div>
     </div>
