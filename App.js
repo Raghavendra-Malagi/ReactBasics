@@ -703,20 +703,17 @@ const Body = () => {
         <button className="">Search</button>
       </div>
       <div className="res-container">
-        {/*Resturantcards*/}
-        {/* {
-          resList.map()=(elem)=>{
-            <Resturantcards resData={elem} />
-          }
-        } */}
-        <Resturantcards resData={resList[0]} />
+        {resList.map((elem) => (
+          <Resturantcards key={elem.info.id} resData={elem} />
+        ))}
+        {/* <Resturantcards resData={resList[0]} />
         <Resturantcards resData={resList[1]} />
         <Resturantcards resData={resList[2]} />
         <Resturantcards resData={resList[3]} />
         <Resturantcards resData={resList[4]} />
         <Resturantcards resData={resList[5]} />
         <Resturantcards resData={resList[6]} />
-        <Resturantcards resData={resList[7]} />
+        <Resturantcards resData={resList[7]} /> */}
       </div>
     </div>
   );
