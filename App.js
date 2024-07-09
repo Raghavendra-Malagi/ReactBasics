@@ -42,23 +42,26 @@ const stylecard = {
 };
 const Resturantcards = (props) => {
   const { resData } = props;
+  const { cloudinaryImageId, cuisines, name, locality, avgRating, costForTwo } =
+    resData?.info;
+  const { deliveryTime } = resData?.info?.sla;
   console.log(resData);
   return (
     <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
       <img
         src={
           "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          resData.info.cloudinaryImageId
+          cloudinaryImageId
         }
         alt="res-img"
       />
       <div className="res-data">
-        <h1>{resData.info.name}</h1>
-        <h4>{resData.info.cuisines.join(",")}</h4>
-        <h4>{resData.info.costForTwo}</h4>
-        <h4>{resData.info.avgRating} ⭐</h4>
-        <h4>{resData.info.locality} 📫</h4>
-        <h4>{resData.info.sla.deliveryTime} mins 🚲</h4>
+        <h1>{name}</h1>
+        <h4>{cuisines.join(",")}</h4>
+        <h4>{costForTwo}</h4>
+        <h4>{avgRating} ⭐</h4>
+        <h4>{locality} 📫</h4>
+        <h4>{deliveryTime} mins 🚲</h4>
       </div>
     </div>
   );
@@ -714,8 +717,6 @@ const Body = () => {
         <Resturantcards resData={resList[5]} />
         <Resturantcards resData={resList[6]} />
         <Resturantcards resData={resList[7]} />
-        {/* <Resturantcards resData={resList[8]} /> */}
-        {/* <Resturantcards resName="KFC" cuisines="Burger, Rolls" /> */}
       </div>
     </div>
   );
